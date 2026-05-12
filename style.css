@@ -163,3 +163,46 @@ body {
     font-style: italic;
     opacity: 0.8;
 }
+
+.novedad-card {
+    background-color: #1a1a1a; /* Gris oscuro como el footer */
+    color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-left: 5px solid #ff4d4d; /* El rojo de tu marca */
+    max-width: 800px;
+    border-radius: 0 10px 10px 0;
+    transition: transform 0.3s;
+}
+
+.novedad-card:hover {
+    transform: translateX(10px); /* Efecto sutil al pasar el mouse */
+}
+
+.fecha {
+    color: #ffc0cb; /* El rosa del fondo para resaltar la fecha */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.galeria-novedades {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 100px */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.galeria-novedades img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover; /* Para que todas las fotos tengan el mismo tamaño sin deformarse */
+    border-radius: 8px;
+    border: 2px solid #ff4d4d; /* Un borde rojo sutil para combinar con el header */
+    transition: transform 0.3s ease;
+}
+
+.galeria-novedades img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    cursor: pointer;
+}
