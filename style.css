@@ -1,247 +1,91 @@
-/* Te he dejado algunos comentarios por si te pierdes:D */
-/* Reset básico para quitar márgenes molestos */
+/* ==========================================================================
+   TE ORDENÉ EL STYLE PARA QUE NO FUERA TAN REDUNDANTE, QUE TE VAYA BIEN EL LUNES :D
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #fccaca; /* Rosa suave de fondo */
+    background-color: #fdf2f2; /* Rosa muy claro de base */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
 }
 
+/* ==========================================================================
+   HEADER / BARRA DE NAVEGACIÓN
+   ========================================================================== */
 .barra {
-    background-color: #9b0103; /* Ajusta a un rojo intenso */
+    background-color: #9b0103; /* Rojo intenso */
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
-    
-    /* El truco de las esquinas redondeadas abajo */
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    height: 100%; /* Se ajusta a la altura de la barra, queda perfecto */
+    height: 100%;
 }
 
 .logo-img {
-    height: 60px; /* Ajusta este valor según qué tan grande quieras el logo Pao, experimenta con esto */
-    width: auto;  /* Mantiene la proporción original */
+    height: 60px; /* Ajusta este valor si el logo se ve muy grande/pequeño */
+    width: auto;
     object-fit: contain;
     padding: 5px 0;
 }
 
 .nav-links {
     display: flex;
-    list-style: none; /* Quita los puntos de la lista,  */
+    list-style: none;
 }
 
-.nav-links li {
-    margin-left: 30px;
-}
+.nav-links li { margin-left: 30px; }
 
 .nav-links a {
     color: white;
-    text-decoration: none; /* Quita el subrayado azul */
+    text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #fccaca; /* Efecto al pasar el mouse */
-}
+.nav-links a:hover { color: #fccaca; }
 
-.slider-container {
-    width: 100%;
-    overflow: hidden;
-    background: #fff0f5;
-    padding: 20px 0;
-}
-
-.slider-track {
-    display: flex;
-    /* Ajusta el ancho: (ancho de 1 imagen + gaps) * total de imágenes */
-    width: calc(300px * 8); 
-    animation: scroll 30s linear infinite;
-}
-
-.slider-track:hover {
-    animation-play-state: paused; /* Se detiene al pasar el mouse, osea, las imágenes (obvio:b) */
-}
-
-.slide {
-    width: 250px;
-    padding: 0 15px;
-}
-
-.slide img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(160, 96, 96, 0.1);
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Aquí mueves exactamente la mitad del ancho total */
-        transform: translateX(calc(-300px * 4)); 
-    }
-}
-
-/* Estilos para el Footer */
-.footer-haru {
-    background-color: #121212; /* Color oscuro para contrastar */
-    color: #ffffff;
-    padding: 40px 0 20px 0;
-    margin-top: 60px; /* Espacio después del slider */
-    border-top: 4px solid #ff4d4d; /* Una línea roja delgada para unir con el header */
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-section h3 {
-    color: #ff4d4d;
-    letter-spacing: 2px;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links a {
-    color: #ffc0cb; /* El rosa del fondo pero en el texto para que resalte */
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-.footer-contact p {
-    font-size: 0.9rem;
-    color: #bbb;
-}
-
-.intro-text {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #ffc0cb; /* El rosa de fondo */
-}
-
-.intro-text h1 {
-    font-size: 3rem;
-    color: #ff4d4d; /* El rojo de t barra */
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-}
-
-.intro-text {
-    font-size: 1.2rem;
-    color: #121212; /* El oscuro del footer */
-    font-style: italic;
-    opacity: 0.8;
-}
-
-.novedad-card {
-    background-color: #1a1a1a; /* Gris oscuro como el footer */
-    color: white;
-    padding: 20px;
-    margin: 20px auto;
-    border-left: 5px solid #ff4d4d; /* El rojo de tu marca */
-    max-width: 800px;
-    border-radius: 0 10px 10px 0;
-    transition: transform 0.3s;
-}
-
-.novedad-card:hover {
-    transform: translateX(10px); /* Efecto sutil al pasar el mouse */
-}
-
-.fecha {
-    color: #ffc0cb; /* El rosa del fondo para resaltar la fecha */
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
-.galeria-novedades {
-    display: grid;
-    /* Crea columnas automáticas de mínimo 100px */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.galeria-novedades img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover; /* Para que todas las fotos tengan el mismo tamaño sin deformarse */
-    border-radius: 8px;
-    border: 2px solid #ff4d4d; /* Un borde rojo sutil para combinar con el header */
-    transition: transform 0.3s ease;
-}
-
-.galeria-novedades img:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
-    cursor: pointer;
-}
-
-/* --- ESTILOS GENERALES DE LANDING --- */
-html {
-    scroll-behavior: smooth; /* Efecto de desplazamiento suave entre secciones */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O la fuente que prefieras */
-}
-
-body {
-    margin: 0;
-    background-color: #fdf2f2; /* Tu rosa muy claro de fondo */
-    color: #333;
-}
-
-section {
-    padding: 80px 20px; /* Espaciado uniforme para las secciones */
-}
+/* ==========================================================================
+   COMPONENTES REUTILIZABLES (Botones, Títulos, Tarjetas)
+   ========================================================================== */
+section { padding: 80px 20px; }
 
 h2.section-title {
     text-align: center;
-    color: #800000; /* Tu granate */
+    color: #800000; /* Granate */
     font-size: 2.8rem;
     margin-bottom: 50px;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
 
-/* --- ESTILOS DE BOTONES --- */
 .btn-primary {
     display: inline-block;
-    background-color: #800000; /* Tu granate */
+    background-color: #800000;
     color: white;
     padding: 15px 35px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: 0.3s;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
@@ -252,13 +96,14 @@ h2.section-title {
     transform: translateY(-3px);
 }
 
-.highlight {
-    color: #800000; /* Granate para resaltar */
-}
+.highlight { color: #800000; }
 
-/* --- 1. HERO SECTION --- */
+/* ==========================================================================
+   SECCIONES DE LA LANDING
+   ========================================================================== */
+
+/* 1. HERO SECTION */
 .hero-section {
-    background-color: #fdf2f2; /* Rosa claro */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -266,161 +111,73 @@ h2.section-title {
     min-height: 80vh;
 }
 
-.hero-content {
-    max-width: 800px;
+.hero-content { max-width: 800px; }
+.hero-content h1 { font-size: 3.5rem; color: #333; margin-bottom: 20px; }
+
+/* 2. SLIDER DE IMÁGENES */
+.slider-container { width: 100%; overflow: hidden; background: #fff0f5; padding: 20px 0; }
+.slider-track { display: flex; width: calc(300px * 8); animation: scroll 30s linear infinite; }
+.slider-track:hover { animation-play-state: paused; }
+.slide { width: 250px; padding: 0 15px; }
+.slide img { width: 100%; border-radius: 15px; box-shadow: 0 4px 8px rgba(160, 96, 96, 0.1); }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 4)); }
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    color: #333;
-    margin-bottom: 20px;
-}
+/* 3. ESTILOS Y VALORES */
+.estilos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+.estilo-card { background-color: #fff; padding: 30px; border-radius: 10px; border-left: 5px solid #800000; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
-.hero-content p {
-    font-size: 1.3rem;
-    line-height: 1.7;
-    margin-bottom: 40px;
-    color: #555;
-}
-
-.cta-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.trust-text {
-    font-size: 0.9rem;
-    color: #777;
-}
-
-/* --- 2. ESTILOS ESTRELLA (GRID) --- */
-.estilos-section {
-    background-color: #fff;
-}
-
-.estilos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.estilo-card {
-    background-color: #fdf2f2; /* Rosa claro */
-    padding: 30px;
-    border-radius: 10px;
-    border-left: 5px solid #800000; /* Granate */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.estilo-card h3 {
-    color: #800000;
-    margin-top: 0;
-}
-
-.estilo-card .concepto {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.estilo-card ul.elementos {
-    list-style-type: '→ ';
-    color: #333;
-    padding-left: 20px;
-}
-
-/* --- 3. NUESTRA ESENCIA --- */
-.valor-section {
-    background-color: #fdf2f2; /* Rosa claro */
-}
-
-.valor-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.valor-container h2 {
-    color: #800000;
-}
-
-.cita {
-    font-size: 1.4rem;
-    font-style: italic;
-    color: #555;
-    border-left: 5px solid #800000;
-    padding-left: 20px;
-    margin: 30px 0;
-    text-align: left;
-}
-
-.puntos-valor {
-    text-align: left;
-}
-
-.punto {
-    margin-bottom: 20px;
-}
-
-/* --- 4. CIERRE Y CAPTURA --- */
-.contacto-section {
-    background-color: white;
-}
-
-.contacto-container {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.subscribe-form {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.subscribe-form input[type="email"] {
-    flex-grow: 1;
-    padding: 15px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-}
-
-.subscribe-form button {
-    flex-shrink: 0;
-}
-
-/* --- ESTILOS DE TU FOOTER (Adaptados para coexistir) --- */
+/* 4. FOOTER */
 .footer-haru {
-    background-color: #1a1a1a; /* Tu negro/rosa muy oscuro */
-    color: white;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 4px solid #ff4d4d;
+}
+
+.footer-content { display: flex; justify-content: space-around; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
+.footer-section h3 { color: #ff4d4d; letter-spacing: 2px; }
+.footer-section a { color: #ffc0cb; text-decoration: none; transition: 0.3s; }
+.footer-section a:hover { color: #ffffff; text-decoration: underline; }
+
+/* --- 1. MEJORA TIPOGRÁFICA GLOBAL --- */
+body {
+    background-color: #fdf2f2;
+    /* La fuente se aplica a todo el documento */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- 2. CENTRADO DE CONTENEDORES --- */
+.valor-container, 
+.contacto-container {
+    max-width: 800px;
+    margin: 0 auto; /* Esto centra el bloque horizontalmente */
+    text-align: center; /* Esto centra el texto y elementos internos */
     padding: 40px 20px;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
+/* --- 3. ESTILO ESPECÍFICO PARA LOS TEXTOS --- */
+.valor-container h2, 
+.contacto-container h2 {
+    margin-bottom: 20px;
+    color: #800000; /* Granate */
 }
 
-.footer-section h3 {
-    color: #ff4d4d; /* Rosa brillante para el logo */
+.cita {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #555;
 }
 
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section a {
-    color: white;
-    text-decoration: none;
+/* Alineación para la lista de "Por qué la moda" */
+.puntos-valor {
+    display: inline-block; /* Permite que el bloque se centre */
+    text-align: left;      /* Mantiene el texto alineado a la izquierda para leer mejor */
 }
