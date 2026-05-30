@@ -1,183 +1,478 @@
 /* ==========================================================================
-   TE ORDENÉ EL STYLE PARA QUE NO FUERA TAN REDUNDANTE, QUE TE VAYA BIEN EL LUNES :D
+   1. CONFIGURACIONES GENERALES Y FUENTES
    ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Permite el desplazamiento suave al usar el menú ancla */
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    background-color: #fdf2f2; /* Rosa muy claro de base */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf2f2; /* Fondo rosa pálido general de Haru Style */
+    color: #121212; /* Texto principal oscuro para asegurar legibilidad */
+}
+
+section {
+    padding: 80px 20px; /* Espaciado interno estándar para separar las secciones */
+}
+
+.resaltado-rojo {
+    color: #800000; /* Tono Rojo Granate de la identidad de marca */
+}
+
+.titulo-seccion {
+    text-align: center;
+    color: #800000;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
 }
 
 /* ==========================================================================
-   HEADER / BARRA DE NAVEGACIÓN
+   2. ENCABEZADO 
    ========================================================================== */
-.barra {
-    background-color: #9b0103; /* Rojo intenso */
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+.contenedor-encabezado {
+    background-color: #800000;
+    /* Reducimos drásticamente los paddings para que la barra sea delgada */
+    padding: 10px 40px 15px 40px; 
+    
+    /* EFECTO BURBUJA SUTIL: Bordes redondeados en las esquinas inferiores */
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-.logo {
+.barra-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 50px; /* Forzamos una altura máxima del contenedor interno */
+}
+
+/* CONTROL DEL LOGO: Esto evitará que se vea gigante */
+.logotipo {
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-.logo-img {
-    height: 60px; /* Ajusta este valor si el logo se ve muy grande/pequeño */
-    width: auto;
+.logotipo img, .imagen-logotipo {
+    height: 45px; /* Altura ideal y controlada para el logo de la mascota */
+    width: auto;  /* Mantiene la proporción original sin deformar */
     object-fit: contain;
-    padding: 5px 0;
 }
 
-.nav-links {
+/* En caso de que uses texto para el logo */
+.texto-logo {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+}
+
+.enlaces-navegacion {
     display: flex;
     list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links li { margin-left: 30px; }
-
-.nav-links a {
-    color: white;
+.enlaces-navegacion a {
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: 0.3s;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
 }
 
-.nav-links a:hover { color: #fccaca; }
+.enlaces-navegacion a:hover {
+    color: #f6b1b4; /* Tono rosa de contraste */
+}
+
+.enlaces-navegacion a:hover {
+    color: #f6b1b4; /* Tono rosa correcto al pasar el cursor */
+}
 
 /* ==========================================================================
-   COMPONENTES REUTILIZABLES (Botones, Títulos, Tarjetas)
+   3. COMPONENTES (BOTONES)
    ========================================================================== */
-section { padding: 80px 20px; }
-
-h2.section-title {
-    text-align: center;
-    color: #800000; /* Granate */
-    font-size: 2.8rem;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.btn-primary {
+.boton-principal {
     display: inline-block;
     background-color: #800000;
     color: white;
     padding: 15px 35px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.btn-primary:hover {
+.boton-principal:hover {
     background-color: #a00000;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
-
-.highlight { color: #800000; }
 
 /* ==========================================================================
-   SECCIONES DE LA LANDING
+   4. SECCIÓN INICIO 
    ========================================================================== */
-
-/* 1. HERO SECTION */
-.hero-section {
-    text-align: center;
+.seccion-inicio {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 65vh;
+    text-align: center;
 }
 
-.hero-content { max-width: 800px; }
-.hero-content h1 { font-size: 3.5rem; color: #333; margin-bottom: 20px; }
-
-/* 2. SLIDER DE IMÁGENES */
-.slider-container { width: 100%; overflow: hidden; background: #fff0f5; padding: 20px 0; }
-.slider-track { display: flex; width: calc(300px * 8); animation: scroll 30s linear infinite; }
-.slider-track:hover { animation-play-state: paused; }
-.slide { width: 250px; padding: 0 15px; }
-.slide img { width: 100%; border-radius: 15px; box-shadow: 0 4px 8px rgba(160, 96, 96, 0.1); }
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-300px * 4)); }
-}
-
-/* 3. ESTILOS Y VALORES */
-.estilos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
-.estilo-card { background-color: #fff; padding: 30px; border-radius: 10px; border-left: 5px solid #800000; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-
-/* 4. FOOTER */
-.footer-haru {
-    background-color: #121212;
-    color: #ffffff;
-    padding: 40px 20px;
-    margin-top: 60px;
-    border-top: 4px solid #ff4d4d;
-}
-
-.footer-content { display: flex; justify-content: space-around; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
-.footer-section h3 { color: #ff4d4d; letter-spacing: 2px; }
-.footer-section a { color: #ffc0cb; text-decoration: none; transition: 0.3s; }
-.footer-section a:hover { color: #ffffff; text-decoration: underline; }
-
-/* --- 1. MEJORA TIPOGRÁFICA GLOBAL --- */
-body {
-    background-color: #fdf2f2;
-    /* La fuente se aplica a todo el documento */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* --- 2. CENTRADO DE CONTENEDORES --- */
-.valor-container, 
-.contacto-container {
+.contenido-inicio {
     max-width: 800px;
-    margin: 0 auto; /* Esto centra el bloque horizontalmente */
-    text-align: center; /* Esto centra el texto y elementos internos */
-    padding: 40px 20px;
 }
 
-/* --- 3. ESTILO ESPECÍFICO PARA LOS TEXTOS --- */
-.valor-container h2, 
-.contacto-container h2 {
+.contenido-inicio h1 {
+    font-size: 3.5rem;
     margin-bottom: 20px;
-    color: #800000; /* Granate */
 }
 
-.cita {
-    font-style: italic;
+.contenido-inicio p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.grupo-llamado-accion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.texto-confianza {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ==========================================================================
+   5. CARRUSEL INFINITO DE IMÁGENES
+   ========================================================================== */
+.contenedor-carrusel {
+    overflow: hidden;
+    background: #fdf2f2;
+    padding: 20px 0;
+}
+
+.pista-carrusel {
+    display: flex;
+    width: calc(250px * 10); /* Ajuste basado en el ancho total de diapositivas */
+    animation: desplazamiento-continuo 20s linear infinite;
+}
+
+.diapositiva {
+    width: 250px;
+    padding: 0 10px;
+}
+
+.diapositiva img {
+    width: 100%;
+    border-radius: 20px; /* Bordes redondeados fluidos según boceto */
+    object-fit: cover;
+}
+
+@keyframes desplazamiento-continuo {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* ==========================================================================
+   6. SECCIÓN ESTILOS (BLOQUES CON DESPLEGABLES NATIVOS HTML5)
+   ========================================================================== */
+.seccion-estilos {
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   6. SECCIÓN ESTILOS (TARJETAS FIJAS SEGÚN MAQUETA)
+   ========================================================================== */
+.seccion-estilos {
+    background-color: #fdf2f2; /* Mantiene el fondo claro general */
+    text-align: center;
+}
+
+.cuadros-paises-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* Espaciado generoso entre las dos burbujas */
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* LAS GRANDES BURBUJAS GRANATES */
+.tarjeta-pais-burbuja {
+    background-color: #800000; /* Color granate principal */
+    color: #ffffff;
+    padding: 60px 40px; /* Relleno amplio para que se vea imponente */
+    border-radius: 50px; /* Bordes súper redondeados */
+    flex: 1;
+    min-width: 320px;
+    max-width: 450px;
+    
+    /* El truco del sombreado rosa de fondo que se ve descentrado en el diseño (#f6b1b4) */
+    box-shadow: 12px 12px 0px #f6b1b4; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Títulos de los países dentro de la burbuja */
+.nombre-pais {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Montserrat Bold */
+    font-size: 1.9rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Lista de subestilos en color blanco */
+.lista-estilos-fijos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.lista-estilos-fijos li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Montserrat Bold */
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.cuadros-paises-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Los bloques principales granates tipo contenedor */
+.bloque-pais-burbuja {
+    background-color: #800000;
+    color: #ffffff;
+    padding: 35px;
+    border-radius: 30px; /* Bordes muy curvos */
+    flex: 1;
+    min-width: 340px;
+    max-width: 500px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.bloque-pais-burbuja h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 0;
+    border-bottom: 2px dashed #f6b1b4;
+    padding-bottom: 15px;
+}
+
+.lista-subestilos {
+    margin-top: 20px;
+}
+
+.desplegable-estilo {
+    margin-bottom: 25px;
+}
+
+/* El elemento summary que se comporta como el hipervínculo clickeable */
+.enlace-estilo {
     font-size: 1.2rem;
-    margin: 20px 0;
-    color: #555;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #ffffff;
+    padding: 5px 0;
+    outline: none;
+    list-style: none; /* Intenta remover el triángulo nativo en algunos navegadores */
 }
 
-/* Alineación para la lista de "Por qué la moda" */
-.puntos-valor {
-    display: inline-block; /* Permite que el bloque se centre */
-    text-align: left;      /* Mantiene el texto alineado a la izquierda para leer mejor */
+.enlace-estilo:hover {
+    color: #f6b1b4; /* Destello con el rosa de contraste al pasar el cursor */
+}
+
+.enlace-estilo::marker {
+    color: #f6b1b4; /* Color de la flecha nativa si el navegador la fuerza */
+}
+
+/* Caja contenedora que aparece de forma automática al abrir el <details> */
+.contenido-desplegado {
+    background-color: #f6b1b4; /* TONO EXACTO: f6b1b4 */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 12px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Grilla para las 3 imágenes lado a lado */
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cuadro-foto img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.descripcion-estilo {
+    color: #121212; /* Color oscuro para asegurar excelente contraste sobre el rosa f6b1b4 */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   7. SECCIÓN NUESTRA ESENCIA (VALOR)
+   ========================================================================== */
+.seccion-esencia {
+    background-color: #fdf2f2;
+}
+
+.contenedor-esencia {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.texto-cita {
+    font-size: 1.35rem;
+    font-style: italic;
+    color: #555;
+    border-left: 5px solid #800000;
+    padding-left: 20px;
+    margin: 40px 0;
+}
+
+.lista-valores {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.item-valor strong {
+    font-size: 1.15rem;
+    color: #800000;
+}
+
+.item-valor p {
+    margin-top: 5px;
+    color: #444;
+}
+
+/* ==========================================================================
+   8. SECCIÓN CONTACTO (CAPTURAR DE CORREO)
+   ========================================================================== */
+.seccion-contacto {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.contenedor-contacto {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contenedor-contacto h2 {
+    font-size: 2.2rem;
+}
+
+.formulario-suscripcion {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.entrada-correo {
+    flex: 1;
+    min-width: 280px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   9. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.pie-pagina {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 25px 0;
+    border-top: 4px solid #800000;
+}
+
+.contenido-pie {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.bloque-pie {
+    margin: 20px;
+    min-width: 200px;
+}
+
+.logotipo-pie {
+    color: #f6b1b4;
+    letter-spacing: 2px;
+}
+
+.enlaces-pie {
+    list-style: none;
+    padding: 0;
+}
+
+.enlaces-pie li {
+    margin-bottom: 10px;
+}
+
+.enlaces-pie a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.enlaces-pie a:hover {
+    color: #f6b1b4;
 }
